@@ -1,0 +1,24 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t idosegev/react-multi-container-app-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run idosegev/react-multi-container-app-test npm test -- --coverage --watchAll=false
+
+after_success:
+ - docker build -t idosegev/react-multi-container-app-client ./client
+ - docker build -t idosegev/react-multi-container-app-nginx ./nginx
+ - docker build -t idosegev/react-multi-container-app-server ./server
+ - docker build -t idosegev/react-multi-container-app-worker ./worker
+
+
+#Log in to the Docker CLI
+ - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+#Take those images and push them to DockerHub
+ - docker push idosegev/react-multi-container-app-client 
+ - docker push idosegev/react-multi-container-app-nginx 
+ - docker push idosegev/react-multi-container-app-server
+ - docker push idosegev/react-multi-container-app-worker 
