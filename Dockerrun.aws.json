@@ -24,7 +24,7 @@
         },
         {
             "name": "nginx",
-            "image": "idosegev/react-multi-container-app-server",
+            "image": "idosegev/react-multi-container-app-nginx",
             "hostname": "nginx",
             "essential": true,
             "portMappings": [
