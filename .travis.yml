@@ -22,3 +22,16 @@ after_success:
  - docker push idosegev/react-multi-container-app-nginx 
  - docker push idosegev/react-multi-container-app-server
  - docker push idosegev/react-multi-container-app-worker 
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "multi-container-app"
+  env: "Multicontainerapp-env"
+  bucket_name: "elasticbeanstalk-us-west-1-665129940264"
+  bucket_path: "multi-container-app"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
