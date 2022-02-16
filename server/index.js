@@ -51,11 +51,12 @@ app.get('/values/current', async (req, res) => {
   redisClient.hgetall('values', (err, values) => {
     res.send(values);
   });
+  
 });
 
 app.post('/values', async (req, res) => {
   const index = req.body.index;
-
+  console.log(req.url)
   if (parseInt(index) > 40) {
     return res.status(422).send('Index too high');
   }
