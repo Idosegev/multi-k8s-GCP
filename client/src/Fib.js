@@ -35,7 +35,13 @@ class Fib extends Component {
   };
 
   renderSeenIndexes() {
-    return this.state.seenIndexes.map(({ number }) => number).join(', ');
+    if (!(this.state.seenIndexes.length > 0)){  
+      console.log('seenIndexes is empty')
+      return 'data is not exist yet'
+    }else{
+      return this.state.seenIndexes.map(({ number }) => number).join(', ');
+    }
+    
   }
 
   renderValues() {
