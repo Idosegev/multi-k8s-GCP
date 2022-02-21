@@ -1,6 +1,10 @@
 sudo: required
 services:
   - docker
+env:
+  global:
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1 #DISABLE WARNINGS AND PROMPTS FROM THE gcloud CLI
+    - SHA=$(git rev-parse HEAD)
 before_install:
   - openssl aes-256-cbc -K $encrypted_19009aef9b80_key -iv $encrypted_19009aef9b80_iv -in gcp_service_account.json.enc -out gcp_service_account.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
@@ -11,4 +15,14 @@ before_install:
   - gcloud config set compute/zone europe-west4-c
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t idosegev/react-test -f ./client/Dockerfile.dev ./client
+
+script: 
+  - docker run idosegev/react-test npm test -- --coverage
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
   
