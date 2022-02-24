@@ -19,7 +19,7 @@ spec:
       secretName: k8s-multi-com
     
   rules:
-    - host: idosegev.com
+    - host: "*.idosegev.com"
       http:
         paths:
         - path: /?(.*)
