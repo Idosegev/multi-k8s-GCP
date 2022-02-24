@@ -19,7 +19,8 @@ spec:
       secretName: k8s-multi-com-rtmbs
     
   rules:
-  - http:
+  - host: "*.idosegev.com"
+    http:
       paths:
       - path: /?(.*)
         pathType: ImplementationSpecific
