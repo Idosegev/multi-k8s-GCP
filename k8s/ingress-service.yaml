@@ -16,7 +16,7 @@ spec:
     - hosts:
         - idosegev.com
         - www.idosegev.com
-      secretName: k8s-multi-com
+      secretName: k8s-multi-com-rtmbs
     
   rules:
   - http:
