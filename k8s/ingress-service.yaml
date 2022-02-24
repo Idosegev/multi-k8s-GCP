@@ -12,11 +12,6 @@ metadata:
   namespace: default
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - www.idosegev.com
-      secretName: k8s-multi-com-rtmbs
-    
   rules:
   - host: "www.idosegev.com"
     http:
@@ -36,6 +31,11 @@ spec:
             name: server-cluster-ip-service
             port:
               number: 5000
+  tls:
+  - hosts:
+      - www.idosegev.com
+    secretName: k8s-multi-com
+    
 
        
   
