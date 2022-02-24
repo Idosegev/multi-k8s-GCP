@@ -36,7 +36,7 @@ spec:
   - hosts:
       - www.idosegev.com
       - idosegev.com
-    secretName: k8s-multi-com
+    secretName: k8s-multi-com-tls
     
 
        
