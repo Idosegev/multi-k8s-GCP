@@ -11,10 +11,10 @@ spec:
   dnsNames:
     - idosegev.com
     - www.idosegev.com
-  acme:
-    config:
-      - http01:
-          ingressClass: nginx
-        domains:
-        - idosegev.com
-        - www.idosegev.com
+  # acme:
+  #   config:
+  #     - http01:
+  #         ingressClass: nginx
+  #       domains:
+  #       - idosegev.com
+  #       - www.idosegev.com
