@@ -11,7 +11,7 @@ spec:
   commonName: idosegev.com
   dnsNames:
     - idosegev.com
-    - www.idosegev.com
+    
   # acme:
   #   config:
   #     - http01:
