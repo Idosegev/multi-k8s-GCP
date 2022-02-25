@@ -14,7 +14,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "www.idosegev.com"
+  - host: "*.idosegev.com"
     http:
       paths:
       - path: /?(.*)
