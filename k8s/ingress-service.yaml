@@ -7,16 +7,16 @@ metadata:
   name: ingress-service
   annotations:
     # acme.cert-manager.io/http01-edit-in-place: "true"
-    kubernetes.io/tls-acme: "true"
-    acme.cert-manager.io/http01-ingress-class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # kubernetes.io/tls-acme: "true"
+    # acme.cert-manager.io/http01-ingress-class: "nginx"
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
   namespace: default
 spec:
   ingressClassName: nginx
   rules:
-  - host: "*.idosegev.com"
+  - host: idosegev.com
     http:
       paths:
       - path: /?(.*)
@@ -34,11 +34,11 @@ spec:
             name: server-cluster-ip-service
             port:
               number: 5000
-  tls:
-  - hosts:
-      - "idosegev.com"
-      - "www.idosegev.com"
-    secretName: k8s-multi-com-tls
+  # tls:
+  # - hosts:
+  #     - "*.idosegev.com"
+  #     - "www.idosegev.com"
+  #   secretName: k8s-multi-com-tls
     
 
        
