@@ -6,7 +6,7 @@ kind: Ingress
 metadata:
   name: ingress-service
   annotations:
-    acme.cert-manager.io/http01-edit-in-place: "true"
+    # acme.cert-manager.io/http01-edit-in-place: "true"
     kubernetes.io/tls-acme: "true"
     acme.cert-manager.io/http01-ingress-class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
