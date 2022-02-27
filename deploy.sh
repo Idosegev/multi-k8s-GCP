@@ -9,7 +9,6 @@ docker push idosegev/react-multi-container-app-worker:latest
 docker push idosegev/react-multi-container-app-client:$SHA
 docker push idosegev/react-multi-container-app-server:$SHA
 docker push idosegev/react-multi-container-app-worker:$SHA
-kubectl 
 kubectl apply -f k8s
 kubectl set image deployments/client-deployment client=idosegev/react-multi-container-app-client:$SHA
 kubectl set image deployments/server-deployment server=idosegev/react-multi-container-app-server:$SHA
