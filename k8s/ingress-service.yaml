@@ -16,7 +16,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "idosegev.com"
+  - host: "*.idosegev.com"
     http:
       paths:
       - path: /?(.*)
@@ -37,6 +37,7 @@ spec:
   tls:
   - hosts:
       - "idosegev.com"
+      - "www.idosegev.com"
     secretName: k8s-multi-com-tls
     
 
