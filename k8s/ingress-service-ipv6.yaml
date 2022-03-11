@@ -4,7 +4,7 @@ apiVersion: networking.k8s.io/v1
 # apiVersion: extensions/v1
 kind: Ingress
 metadata:
-  name: ingress-service
+  name: ingress-service-ipv6
   annotations:
     # acme.cert-manager.io/http01-edit-in-place: "true"
     # kubernetes.io/tls-acme: "true"
@@ -13,7 +13,7 @@ metadata:
     # nginx.ingress.kubernetes.io/ssl-redirect: "true"
     networking.gke.io/managed-certificates: managed-cert
     kubernetes.io/ingress.class: "gce"
-    kubernetes.io/ingress.global-static-ip-name: "static-ip-https"
+    kubernetes.io/ingress.global-static-ip-name: "static-ip-ipv6-https"
     #nginx.ingress.kubernetes.io/rewrite-target: /$1
   namespace: default
 spec:
@@ -44,7 +44,7 @@ spec:
     http:
       paths:
         - pathType: Exact
-          path: /  
+          path: / 
           #"/?(.*)"
           backend:
             service:
